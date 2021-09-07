@@ -1,0 +1,58 @@
+In Emotion sheet:
+- It contains every common word in the vocabulary. Every word should be given a value of -1 (if the word is sad), 0 (if it's neutral), 1 (if it's happy).
+- The emotion value will also be determined partly on a whole file, that will store all of the sad senteces the user might say, ad all of the happy things the user might say.
+  In this way, the program will have layers to choose from. 1 --> The sentences are identincal, therefore it is certain that the emotion value is what it was set
+  2 --> the sentence is 65 % right, therefore the emotion should be quite significant. If below, it will check each word's emotion and try to average it.
+- the questioning value doesn't work, therefore it will be removed. In the library that you will create, you might wanna thing of an alternative way of making the computer
+  understand whether the user is asking a question or not even without a question mark, but if that doesn't work, leave it
+- The word type section, contains value for each word type :  "1" --> Big W , "2" --> verb, "3" --> noun, "4" --> pronoun.
+- The conversation value, determines whether the word connected to it, is a good word for a topic conversation (value of 1). If not, it will not have any value
+
+In Better Question Combination:
+- We have the questions that have been programmed by the algorithm which make sense, but are not correctly written. Therefore, the program assigns a new way of writing the 
+  same question, displaying that one instead of the old one.
+
+
+In Already Asked Question Combination:
+- There is a list of all of the random questions that have been asked by the AI. I disabled this feature, because I felt some questions should have been repeated
+  but this option doesn't allow this to happen. I still need to understand if this will be part of it. Make sure that ONLY RANDOM QUESTIONS are stored in here.
+  (You still haven't dealt with this in the code, so you might wanna do this).
+
+
+In Questions:
+- There is a list of a bunch of question that the user might ask and their response. The algorithm will determine which question the user is referring to even though
+  it has not been written word for word. If the AI gives a wrong response to the question, the user will enter a valid answer that the AI should have responded with. This 
+  will be added as a new row in the file.
+
+
+in Random Responses:
+- Theres a bunch of quick responses in case the AI has no clue of what the user is asking. It will just choose one randomly.
+
+
+in Wrong Question Combination:
+- Theres a list of question combination that are completely wrong and should never be asked by the AI at ANY time (whether they don't make sense or are inappropriate). 
+  Therefore, if the Ai encounters one of these question it will skip it.
+
+
+PROBLEMS:
+- === Find a solution for when the user asks the AI: you?
+- === Make sure that, if a user question already has an answer, and the user wants to add an additional answer, the AI will add the answer
+  next to the previous one in the same row. And that the AI will randomly choose the answer that the user will receive from its question.
+- Add functionalities such as (Asking the time, maths questions, asking "What did I just say?", "can you show me a record of our conversations?", "/help" for special commands)
+- === Add User sentences (not questions or answers to questions). The algorithm will look at the length of the text, the emotion and other factors to understand what the user
+  is saying in the sentence. The AI will then respond with an asnwer or a question related to the sentence.
+- Add AI sentences (not questions or answers to questions). The AI will randomly decide whether to ask a question or to say a sentence. Sentences will be treaded like
+  questions: (topic sentences, random sentences) all created using the dictionary and rules
+- If time passes and no one writes anything, the AI will ask a random question or say: "Hey are you there?"
+- === Add a column in the QUestion file, where a REBOUND QUESTION is asked, every time the user asks that question. Check if REBOUND QUESTION is null, if it is not, ask the 
+  question written in that column, and add a sub class of AIQUESTION that contains that questioin, so that it is considered a question by the program.
+- If the user asks a REBOUND question, the AI will understand that it is a rebound question, and answer with a short unswer like: "I agree"
+- Add some kind of weighting to a question. For exmaple, the "Why do humans like..." should be quite rare questions.
+- When the user asks a long question and the answer is incorrect and they wanna change it, make sure that in the correction, ONLY the question included in the phrase is added
+  in the document.
+- Make sure all of the hard coded values (limits that can be changed inside the program), are stored in a file and imported
+- If the user presses enter without writing anything, the ai will skip it, and ask a random question instead, or related
+- Allow the AI to use the questions stored in "Questions" to ask the question to the user. It might be better if that question hasn't been previously asked from the user, but it is still related to the topic
+- Make a "undo" -ing form. Whenever the user inputs something with the -ing form, the ai should take the verb without the -ing form to create topic questions/sentences
+- Use the "Questions" file, to make sure that the ai asks some questions from that file, both random/topic. For the topic, you need to look whether the topic word is in any of the questions in "Questions"
+- Use the "chatbot responses" file, to make the say random/topic sentences, as well as create a way to create random sentences, like it happened with the questions
